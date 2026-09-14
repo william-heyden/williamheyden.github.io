@@ -5,7 +5,7 @@ status: "Published"
 venue: "International Conference on Deep Learning Theory and Applications (DeLTA)"
 year: 2025
 authors: "William Heyden, Habib Ullah, M. Salman Siddiqui, Fadi Al Machot"
-order: 3
+order: 2
 links:
   arxiv: "https://arxiv.org/abs/2409.00511"
 summary: "A diffusion model that runs the usual generation direction in reverse — synthesizing semantic embeddings from visual input instead of visual features from semantic descriptions."

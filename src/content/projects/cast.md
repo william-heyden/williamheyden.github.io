@@ -5,7 +5,7 @@ status: "Preprint"
 venue: "arXiv preprint"
 year: 2026
 authors: "William Heyden, Habib Ullah, M. Salman Siddiqui, Fadi Al Machot"
-order: 4
+order: 1
 links:
   arxiv: "https://arxiv.org/abs/2608.13751"
 summary: "A training-free, image-free framework that extends a pretrained classifier to unseen classes by directly injecting weights derived analytically from semantic embeddings."

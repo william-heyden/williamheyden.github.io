@@ -5,7 +5,7 @@ status: "Published"
 venue: "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) Workshops"
 year: 2025
 authors: "William Heyden, Habib Ullah, M. Salman Siddiqui, Fadi Al Machot"
-order: 2
+order: 3
 links:
   paper: "https://openaccess.thecvf.com/content/WACV2025W/CV4Small/papers/Heyden_SEER-ZSL_Semantic_Encoder-Enhanced_Representations_for_Generalized_Zero-Shot_Learning_WACVW_2025_paper.pdf"
   arxiv: "https://arxiv.org/abs/2312.13100"
