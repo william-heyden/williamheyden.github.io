@@ -12,22 +12,36 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+const isPaper = project.data.type === 'paper';
 ---
 
 <Base title={project.data.title} description={project.data.summary}>
   <h1>{project.data.title}</h1>
-  <p class="meta">{project.data.status}</p>
+
+  {isPaper ? (
+    <>
+      <p class="meta">
+        {project.data.venue}{project.data.year ? `, ${project.data.year}` : ''}
+      </p>
+      {project.data.authors && <p class="meta">{project.data.authors}</p>}
+    </>
+  ) : (
+    <p class="meta">{project.data.status}</p>
+  )}
 
   {project.data.links && (
     <ul class="actions">
+      {project.data.links.paper && (
+        <li><a class="primary" href={project.data.links.paper} target="_blank" rel="noopener">Read the paper</a></li>
+      )}
+      {project.data.links.arxiv && (
+        <li><a href={project.data.links.arxiv} target="_blank" rel="noopener">arXiv</a></li>
+      )}
       {project.data.links.github && (
-        <li><a href={project.data.links.github} target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href={project.data.links.github} target="_blank" rel="noopener">Code</a></li>
       )}
       {project.data.links.demo && (
         <li><a href={project.data.links.demo} target="_blank" rel="noopener">Demo</a></li>
-      )}
-      {project.data.links.paper && (
-        <li><a href={project.data.links.paper} target="_blank" rel="noopener">Paper</a></li>
       )}
     </ul>
   )}

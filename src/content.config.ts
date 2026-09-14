@@ -16,13 +16,18 @@ const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
   schema: z.object({
     title: z.string(),
+    type: z.enum(['project', 'paper']).default('project'),
     status: z.string(),
+    venue: z.string().optional(),
+    year: z.number().optional(),
+    authors: z.string().optional(),
     order: z.number().default(0),
     links: z
       .object({
         github: z.string().optional(),
         demo: z.string().optional(),
         paper: z.string().optional(),
+        arxiv: z.string().optional(),
       })
       .optional(),
     summary: z.string(),

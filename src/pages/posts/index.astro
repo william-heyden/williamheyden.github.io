@@ -9,12 +9,12 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
 const dateFmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
-<Base title="Essays" description="Technical essays by William Heyden on computer vision and machine learning.">
-  <h1>Essays</h1>
+<Base title="Blogs" description="Technical essays by William Heyden on computer vision and machine learning.">
+  <h1>Blogs</h1>
 
   {posts.length === 0 && (
     <p class="empty">
-      No essays published yet. Add a Markdown file under
+      No posts published yet. Add a Markdown file under
       <code>src/content/posts/</code> with frontmatter
       (title, date, tags, summary) to publish one here.
     </p>

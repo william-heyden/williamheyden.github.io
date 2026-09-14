@@ -1,5 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const papers = (await getCollection('projects', ({ data }) => data.type === 'paper')).sort(
+  (a, b) => (b.data.year ?? 0) - (a.data.year ?? 0)
+);
 ---
 
 <Base title="CV" description="CV of William Heyden — computer vision researcher, PhD candidate.">
@@ -36,16 +41,21 @@ import Base from '../layouts/Base.astro';
 
   <section>
     <h2>Publications</h2>
-    <p class="empty">
-      Add publications here — title, venue, year, and a link to the paper.
-    </p>
-    <!--
-      TODO: example entry once you have one:
-      <div class="card">
-        <h3><a href="https://paper-url">Paper Title</a></h3>
-        <p class="meta">Conference/Journal Name, 2026</p>
-      </div>
-    -->
+    {papers.length === 0 && (
+      <p class="empty">
+        Add publications here — title, venue, year, and a link to the paper.
+      </p>
+    )}
+    <ul class="plain">
+      {papers.map((paper) => (
+        <li class="card">
+          <h3><a href={`/projects/${paper.id}/`}>{paper.data.title}</a></h3>
+          <p class="meta">
+            {paper.data.venue}{paper.data.year ? `, ${paper.data.year}` : ''}
+          </p>
+        </li>
+      ))}
+    </ul>
   </section>
 
   <section>

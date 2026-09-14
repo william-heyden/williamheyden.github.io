@@ -45,7 +45,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           <a class="brand" href="/"><span class="mark">WH</span> William Heyden</a>
           <div class="links">
             <a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>About</a>
-            <a href="/posts/" aria-current={Astro.url.pathname.startsWith('/posts') ? 'page' : undefined}>Essays</a>
+            <a href="/posts/" aria-current={Astro.url.pathname.startsWith('/posts') ? 'page' : undefined}>Blogs</a>
             <a href="/projects/" aria-current={Astro.url.pathname.startsWith('/projects') ? 'page' : undefined}>Projects</a>
             <a href="/cv/" aria-current={Astro.url.pathname.startsWith('/cv') ? 'page' : undefined}>CV</a>
           </div>

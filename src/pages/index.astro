@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects'))
   .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 3);
+  .slice(0, 4);
 ---
 
 <Base title="William Heyden">
@@ -29,10 +29,10 @@ const projects = (await getCollection('projects'))
     </p>
 
     <ul class="actions">
-      <li><a class="primary" href="mailto:willhey95@gmail.com">Email</a></li>
-      <li><a href="https://github.com/PLACEHOLDER" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="https://linkedin.com/in/PLACEHOLDER" target="_blank" rel="noopener">LinkedIn</a></li>
-      <!-- TODO: swap in your real GitHub and LinkedIn URLs. -->
+      <li><a class="primary" href="mailto:william@heyden.no">Email</a></li>
+      <li><a href="https://github.com/william-heyden" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/heyden-william/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://scholar.google.com/citations?user=yx3uyQUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
     </ul>
   </section>
 
@@ -48,7 +48,11 @@ const projects = (await getCollection('projects'))
       {projects.map((project) => (
         <li class="card">
           <h3><a href={`/projects/${project.id}/`}>{project.data.title}</a></h3>
-          <p class="meta">{project.data.status}</p>
+          <p class="meta">
+            {project.data.type === 'paper'
+              ? `${project.data.venue}${project.data.year ? `, ${project.data.year}` : ''}`
+              : project.data.status}
+          </p>
           <p>{project.data.summary}</p>
         </li>
       ))}

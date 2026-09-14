@@ -1,0 +1,29 @@
+<svg width="880" height="320" viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow-seer" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#1d4ed8" />
+    </marker>
+  </defs>
+  <rect width="880" height="320" fill="#fafaf8" />
+
+  <rect x="30" y="40" width="180" height="55" rx="10" fill="#ffffff" stroke="#d7d6d2" />
+  <text x="120" y="72" text-anchor="middle" font-size="13" fill="#222">Visual Encoder</text>
+
+  <rect x="30" y="225" width="180" height="55" rx="10" fill="#ffffff" stroke="#d7d6d2" />
+  <text x="120" y="257" text-anchor="middle" font-size="13" fill="#222">Semantic Attributes</text>
+
+  <rect x="270" y="200" width="220" height="80" rx="10" fill="#eaf0fd" stroke="#1d4ed8" />
+  <text x="380" y="230" text-anchor="middle" font-size="13" font-weight="600" fill="#1d4ed8">Probabilistic Semantic</text>
+  <text x="380" y="248" text-anchor="middle" font-size="13" font-weight="600" fill="#1d4ed8">Encoder</text>
+  <text x="380" y="266" text-anchor="middle" font-size="11" fill="#1d4ed8">(noise-robust distillation)</text>
+
+  <rect x="560" y="120" width="230" height="80" rx="10" fill="#ffffff" stroke="#d7d6d2" />
+  <text x="675" y="150" text-anchor="middle" font-size="13" fill="#222">Semantic &amp; Visual</text>
+  <text x="675" y="168" text-anchor="middle" font-size="13" fill="#222">Alignment / Fusion</text>
+
+  <line x1="120" y1="95" x2="675" y2="120" stroke="#1d4ed8" stroke-width="2" marker-end="url(#arrow-seer)" />
+  <line x1="210" y1="253" x2="270" y2="245" stroke="#1d4ed8" stroke-width="2" marker-end="url(#arrow-seer)" />
+  <line x1="490" y1="235" x2="600" y2="200" stroke="#1d4ed8" stroke-width="2" marker-end="url(#arrow-seer)" />
+
+  <text x="440" y="300" text-anchor="middle" font-size="12" fill="#66666a">Enhanced semantic consistency improves generalized classification over seen and unseen classes</text>
+</svg>
