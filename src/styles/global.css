@@ -365,8 +365,8 @@ ul.plain {
 
 .prose .katex-display {
   overflow-x: auto;
-  overflow-y: hidden;
-  padding: 0.25rem 0;
+  overflow-y: visible;
+  padding: 0.6rem 0;
 }
 
 .prose .katex {
