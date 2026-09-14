@@ -19,18 +19,20 @@ const { Content } = await render(project);
   <p class="meta">{project.data.status}</p>
 
   {project.data.links && (
-    <p>
+    <ul class="actions">
       {project.data.links.github && (
-        <a href={project.data.links.github} target="_blank" rel="noopener">GitHub</a>
+        <li><a href={project.data.links.github} target="_blank" rel="noopener">GitHub</a></li>
       )}
       {project.data.links.demo && (
-        <>&nbsp;&middot;&nbsp;<a href={project.data.links.demo} target="_blank" rel="noopener">Demo</a></>
+        <li><a href={project.data.links.demo} target="_blank" rel="noopener">Demo</a></li>
       )}
       {project.data.links.paper && (
-        <>&nbsp;&middot;&nbsp;<a href={project.data.links.paper} target="_blank" rel="noopener">Paper</a></>
+        <li><a href={project.data.links.paper} target="_blank" rel="noopener">Paper</a></li>
       )}
-    </p>
+    </ul>
   )}
 
-  <Content />
+  <div class="prose">
+    <Content />
+  </div>
 </Base>
