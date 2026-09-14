@@ -1,0 +1,43 @@
+<svg width="880" height="260" viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow-fwd" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#66666a" />
+    </marker>
+    <marker id="arrow-rev" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#1d4ed8" />
+    </marker>
+  </defs>
+  <rect width="880" height="260" fill="#fafaf8" />
+
+  <circle cx="80" cy="130" r="34" fill="#eaf0fd" stroke="#1d4ed8" />
+  <text x="80" y="135" text-anchor="middle" font-size="15" fill="#1d4ed8">x&#8320;</text>
+
+  <circle cx="260" cy="130" r="34" fill="#ffffff" stroke="#d7d6d2" />
+  <text x="260" y="135" text-anchor="middle" font-size="15" fill="#222">x&#8321;</text>
+
+  <circle cx="440" cy="130" r="34" fill="#ffffff" stroke="#d7d6d2" />
+  <text x="440" y="135" text-anchor="middle" font-size="14" fill="#222">x_{t-1}</text>
+
+  <circle cx="620" cy="130" r="34" fill="#ffffff" stroke="#d7d6d2" />
+  <text x="620" y="135" text-anchor="middle" font-size="15" fill="#222">x_t</text>
+
+  <circle cx="800" cy="130" r="34" fill="#f3f2ef" stroke="#66666a" />
+  <text x="800" y="135" text-anchor="middle" font-size="14" fill="#66666a">x_T</text>
+
+  <!-- forward arrows (top, data -> noise) -->
+  <path d="M114,110 Q170,80 226,110" fill="none" stroke="#66666a" stroke-width="1.6" marker-end="url(#arrow-fwd)" />
+  <path d="M294,110 Q360,80 406,110" fill="none" stroke="#66666a" stroke-width="1.6" marker-end="url(#arrow-fwd)" />
+  <path d="M474,110 Q540,80 586,110" fill="none" stroke="#66666a" stroke-width="1.6" marker-end="url(#arrow-fwd)" />
+  <path d="M654,110 Q720,80 766,110" fill="none" stroke="#66666a" stroke-width="1.6" marker-end="url(#arrow-fwd)" />
+  <text x="440" y="65" text-anchor="middle" font-size="12" fill="#66666a">q(x_t | x_{t-1}) &#8212; fixed Gaussian noising</text>
+
+  <!-- reverse arrows (bottom, noise -> data) -->
+  <path d="M766,152 Q720,182 654,152" fill="none" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#arrow-rev)" />
+  <path d="M586,152 Q540,182 474,152" fill="none" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#arrow-rev)" />
+  <path d="M406,152 Q360,182 294,152" fill="none" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#arrow-rev)" />
+  <path d="M226,152 Q170,182 114,152" fill="none" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#arrow-rev)" />
+  <text x="440" y="215" text-anchor="middle" font-size="12" fill="#1d4ed8">p_&#952;(x_{t-1} | x_t) &#8212; learned denoising</text>
+
+  <text x="80" y="185" text-anchor="middle" font-size="11" fill="#66666a">data</text>
+  <text x="800" y="185" text-anchor="middle" font-size="11" fill="#66666a">noise</text>
+</svg>
