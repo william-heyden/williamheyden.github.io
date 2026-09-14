@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+---
+
+<Base title="William Heyden">
+  <section>
+    <h1>William Heyden</h1>
+    <p class="meta">Computer Vision Researcher &middot; PhD Candidate</p>
+
+    <p>
+      I'm a final-year PhD student researching computer vision, focused on
+      zero-shot classification and building practical methods that let models
+      recognize novel categories without task-specific labeled data. My work
+      sits at the intersection of representation learning and open-vocabulary
+      recognition — I care about approaches that hold up outside the
+      benchmark, not just on it.
+    </p>
+    <p>
+      As I finish my PhD, I'm looking for research-engineering roles where I
+      can take methods from paper to production: applied research, ML
+      research engineering, or applied scientist positions working on vision
+      or multimodal systems.
+      <!-- TODO: replace with your university, lab, and advisor once decided how much to disclose. -->
+    </p>
+
+    <p>
+      <a href="mailto:willhey95@gmail.com">Email</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://github.com/PLACEHOLDER" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://linkedin.com/in/PLACEHOLDER" target="_blank" rel="noopener">LinkedIn</a>
+      <!-- TODO: swap in your real GitHub and LinkedIn URLs. -->
+    </p>
+  </section>
+
+  <section>
+    <h2>Featured work</h2>
+    {projects.length === 0 && (
+      <p class="empty">
+        No projects published yet — add entries under
+        <code>src/content/projects/</code> and they'll appear here.
+      </p>
+    )}
+    <ul class="plain">
+      {projects.map((project) => (
+        <li class="card">
+          <h3><a href={`/projects/${project.id}/`}>{project.data.title}</a></h3>
+          <p class="meta">{project.data.status}</p>
+          <p>{project.data.summary}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

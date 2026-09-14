@@ -1,0 +1,66 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'William Heyden — computer vision researcher, PhD candidate working on zero-shot classification.',
+} = Astro.props;
+
+const pageTitle = title === 'William Heyden' ? title : `${title} — William Heyden`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={new URL('/og-default.svg', Astro.site)} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL('/og-default.svg', Astro.site)} />
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <nav class="site">
+          <a class="brand" href="/">William Heyden</a>
+          <div class="links">
+            <a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>About</a>
+            <a href="/posts/" aria-current={Astro.url.pathname.startsWith('/posts') ? 'page' : undefined}>Essays</a>
+            <a href="/projects/" aria-current={Astro.url.pathname.startsWith('/projects') ? 'page' : undefined}>Projects</a>
+            <a href="/cv/" aria-current={Astro.url.pathname.startsWith('/cv') ? 'page' : undefined}>CV</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+    <footer class="site">
+      <div class="wrap">
+        &copy; {new Date().getFullYear()} William Heyden
+      </div>
+    </footer>
+  </body>
+</html>

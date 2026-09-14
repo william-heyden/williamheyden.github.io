@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const dateFmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base title="Essays" description="Technical essays by William Heyden on computer vision and machine learning.">
+  <h1>Essays</h1>
+
+  {posts.length === 0 && (
+    <p class="empty">
+      No essays published yet. Add a Markdown file under
+      <code>src/content/posts/</code> with frontmatter
+      (title, date, tags, summary) to publish one here.
+    </p>
+  )}
+
+  <ul class="plain">
+    {posts.map((post) => (
+      <li class="card">
+        <h3><a href={`/posts/${post.id}/`}>{post.data.title}</a></h3>
+        <p class="meta">{dateFmt.format(post.data.date)}</p>
+        <p>{post.data.summary}</p>
+        <div>
+          {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      </li>
+    ))}
+  </ul>
+</Base>

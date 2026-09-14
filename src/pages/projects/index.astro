@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<Base title="Projects" description="Research projects and case studies by William Heyden.">
+  <h1>Projects</h1>
+
+  {projects.length === 0 && (
+    <p class="empty">
+      No projects yet. Add a Markdown file under
+      <code>src/content/projects/</code> with frontmatter
+      (title, status, links, summary) to publish one here.
+    </p>
+  )}
+
+  <ul class="plain">
+    {projects.map((project) => (
+      <li class="card">
+        <h3><a href={`/projects/${project.id}/`}>{project.data.title}</a></h3>
+        <p class="meta">{project.data.status}</p>
+        <p>{project.data.summary}</p>
+      </li>
+    ))}
+  </ul>
+</Base>

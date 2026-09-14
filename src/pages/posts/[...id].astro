@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const dateFmt = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const wordCount = (post.body ?? '').trim().split(/\s+/).filter(Boolean).length;
+const readMinutes = Math.max(1, Math.round(wordCount / 200));
+---
+
+<Base title={post.data.title} description={post.data.summary}>
+  <h1>{post.data.title}</h1>
+  <p class="meta">
+    {dateFmt.format(post.data.date)} &middot; {readMinutes} min read
+  </p>
+  <div>
+    {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+  </div>
+
+  <Content />
+</Base>

@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="CV" description="CV of William Heyden — computer vision researcher, PhD candidate.">
+  <h1>CV</h1>
+  <p>
+    <a href="/resume.pdf" target="_blank" rel="noopener">Download PDF</a>
+    <!-- TODO: add a resume.pdf file to /public and this link will work as-is. -->
+  </p>
+
+  <section>
+    <h2>Education</h2>
+    <div class="card">
+      <h3>PhD, Computer Vision <!-- TODO: institution name --></h3>
+      <p class="meta">Expected 2027 &middot; <!-- TODO: location --></p>
+      <p>
+        Dissertation focus: zero-shot classification — methods for
+        recognizing novel visual categories without task-specific labeled
+        examples.
+        <!-- TODO: add advisor name, thesis title once finalized. -->
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Research focus</h2>
+    <ul>
+      <li>Zero-shot and open-vocabulary image classification</li>
+      <li>Vision-language representation learning</li>
+      <li>Generalization to novel categories and distribution shift</li>
+      <!-- TODO: refine to your actual sub-areas. -->
+    </ul>
+  </section>
+
+  <section>
+    <h2>Publications</h2>
+    <p class="empty">
+      Add publications here — title, venue, year, and a link to the paper.
+    </p>
+    <!--
+      TODO: example entry once you have one:
+      <div class="card">
+        <h3><a href="https://paper-url">Paper Title</a></h3>
+        <p class="meta">Conference/Journal Name, 2026</p>
+      </div>
+    -->
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <p class="empty">
+      Add research/industry experience here — role, organization, dates, and
+      1-2 impact-focused bullet points per entry.
+    </p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Languages:</strong> Python <!-- TODO: add others --></li>
+      <li><strong>ML/CV:</strong> PyTorch <!-- TODO: add frameworks (e.g. timm, open_clip, JAX) --></li>
+      <li><strong>Tooling:</strong> <!-- TODO: e.g. Docker, Slurm, W&B --></li>
+    </ul>
+  </section>
+</Base>
