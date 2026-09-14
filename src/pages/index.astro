@@ -9,14 +9,21 @@ const projects = (await getCollection('projects'))
 
 <Base title="William Heyden">
   <section>
-    <h1>William Heyden</h1>
-    <p class="lede">Computer Vision Researcher &middot; PhD Candidate</p>
+    <div class="hero">
+      <img class="avatar" src="/avatar.jpg" alt="William Heyden" width="84" height="84" />
+      <div>
+        <h1>William Heyden</h1>
+        <p class="lede">Computer Vision Researcher &middot; PhD Candidate</p>
+      </div>
+    </div>
 
     <p>
-      I'm a final-year PhD student researching computer vision, focused on
-      zero-shot classification and building practical methods that let models
-      recognize novel categories without task-specific labeled data. My work
-      sits at the intersection of representation learning and open-vocabulary
+      I'm a final-year PhD candidate in Artificial Intelligence and Machine
+      Learning at the Norwegian University of Life Sciences (NMBU), Ås,
+      Norway, researching computer vision with a focus on zero-shot
+      classification — building practical methods that let models recognize
+      novel categories without task-specific labeled data. My work sits at
+      the intersection of representation learning and open-vocabulary
       recognition — I care about approaches that hold up outside the
       benchmark, not just on it.
     </p>
@@ -25,7 +32,6 @@ const projects = (await getCollection('projects'))
       can take methods from paper to production: applied research, ML
       research engineering, or applied scientist positions working on vision
       or multimodal systems.
-      <!-- TODO: replace with your university, lab, and advisor once decided how much to disclose. -->
     </p>
 
     <ul class="actions">
