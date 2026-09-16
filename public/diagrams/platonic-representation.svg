@@ -1,0 +1,50 @@
+<svg width="880" height="400" viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow-plat" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#66666a" />
+    </marker>
+  </defs>
+  <rect width="880" height="400" fill="#fafaf8" />
+  <text x="440" y="26" text-anchor="middle" font-size="12" fill="#66666a">independently trained models, each aligned to Z* only up to a transform</text>
+
+  <!-- shared platonic representation, center -->
+  <circle cx="440" cy="190" r="75" fill="#eaf0fd" stroke="#1d4ed8" stroke-width="2" />
+  <text x="440" y="180" text-anchor="middle" font-size="13" font-weight="600" fill="#1d4ed8">shared representation</text>
+  <text x="440" y="198" text-anchor="middle" font-size="13" font-weight="600" fill="#1d4ed8">Z*</text>
+  <text x="440" y="216" text-anchor="middle" font-size="11" fill="#1d4ed8">(statistical model of reality)</text>
+
+  <!-- vision embeddings, top-left -->
+  <circle cx="150" cy="90" r="58" fill="#ffffff" stroke="#d7d6d2" />
+  <circle cx="128" cy="78" r="4" fill="#66666a" />
+  <circle cx="160" cy="70" r="4" fill="#66666a" />
+  <circle cx="175" cy="100" r="4" fill="#66666a" />
+  <circle cx="140" cy="108" r="4" fill="#66666a" />
+  <text x="150" y="168" text-anchor="middle" font-size="12" fill="#222">visual embeddings</text>
+
+  <!-- semantic / attribute embeddings, top-right -->
+  <circle cx="730" cy="90" r="58" fill="#ffffff" stroke="#d7d6d2" />
+  <circle cx="708" cy="78" r="4" fill="#66666a" />
+  <circle cx="740" cy="70" r="4" fill="#66666a" />
+  <circle cx="755" cy="100" r="4" fill="#66666a" />
+  <circle cx="720" cy="108" r="4" fill="#66666a" />
+  <text x="730" y="168" text-anchor="middle" font-size="12" fill="#222">semantic / attribute</text>
+  <text x="730" y="184" text-anchor="middle" font-size="12" fill="#222">embeddings</text>
+
+  <!-- noisy descriptions, bottom -->
+  <circle cx="440" cy="350" r="58" fill="#ffffff" stroke="#d7d6d2" />
+  <circle cx="418" cy="338" r="4" fill="#66666a" />
+  <circle cx="450" cy="330" r="4" fill="#66666a" />
+  <circle cx="465" cy="360" r="4" fill="#66666a" />
+  <circle cx="430" cy="368" r="4" fill="#66666a" />
+  <text x="440" y="390" text-anchor="middle" font-size="12" fill="#222">noisy, modality-specific descriptions</text>
+
+  <!-- converging arrows -->
+  <line x1="205" y1="109" x2="371" y2="166" stroke="#66666a" stroke-width="1.6" marker-end="url(#arrow-plat)" />
+  <text x="270" y="128" text-anchor="middle" font-size="11" fill="#66666a">A&#8321;</text>
+
+  <line x1="675" y1="109" x2="509" y2="166" stroke="#66666a" stroke-width="1.6" marker-end="url(#arrow-plat)" />
+  <text x="610" y="128" text-anchor="middle" font-size="11" fill="#66666a">A&#8322;</text>
+
+  <line x1="440" y1="292" x2="440" y2="266" stroke="#66666a" stroke-width="1.6" marker-end="url(#arrow-plat)" />
+  <text x="462" y="282" text-anchor="middle" font-size="11" fill="#66666a">A&#8323;</text>
+</svg>

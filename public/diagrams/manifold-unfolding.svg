@@ -1,0 +1,55 @@
+<svg width="880" height="320" viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow-unfold" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#1d4ed8" />
+    </marker>
+  </defs>
+  <rect width="880" height="320" fill="#fafaf8" />
+
+  <!-- left panel: ambient space -->
+  <rect x="20" y="40" width="400" height="240" rx="10" fill="#ffffff" stroke="#d7d6d2" />
+  <text x="220" y="26" text-anchor="middle" font-size="12" fill="#66666a">ambient space (dim D, mostly empty)</text>
+
+  <!-- scattered non-data points -->
+  <circle cx="70" cy="90" r="2.5" fill="#d7d6d2" />
+  <circle cx="360" cy="70" r="2.5" fill="#d7d6d2" />
+  <circle cx="380" cy="240" r="2.5" fill="#d7d6d2" />
+  <circle cx="60" cy="250" r="2.5" fill="#d7d6d2" />
+  <circle cx="200" cy="60" r="2.5" fill="#d7d6d2" />
+  <circle cx="340" cy="180" r="2.5" fill="#d7d6d2" />
+  <circle cx="90" cy="180" r="2.5" fill="#d7d6d2" />
+
+  <!-- the manifold curve -->
+  <path d="M55,230 C110,110 170,270 230,150 C280,60 340,140 390,90"
+        fill="none" stroke="#1d4ed8" stroke-width="2" opacity="0.6" />
+  <text x="220" y="292" text-anchor="middle" font-size="11" fill="#1d4ed8">data manifold &#8499; (dim k &#8810; D)</text>
+
+  <!-- points along the manifold -->
+  <circle cx="70" cy="214" r="6" fill="#eaf0fd" stroke="#1d4ed8" />
+  <circle cx="150" cy="182" r="6" fill="#eaf0fd" stroke="#1d4ed8" />
+  <circle cx="205" cy="195" r="6" fill="#eaf0fd" stroke="#1d4ed8" />
+  <circle cx="270" cy="105" r="6" fill="#eaf0fd" stroke="#1d4ed8" />
+  <circle cx="325" cy="118" r="6" fill="#eaf0fd" stroke="#1d4ed8" />
+  <circle cx="385" cy="93" r="6" fill="#eaf0fd" stroke="#1d4ed8" />
+
+  <!-- encoder arrow -->
+  <line x1="432" y1="160" x2="468" y2="160" stroke="#66666a" stroke-width="2" marker-end="url(#arrow-unfold)" />
+  <text x="450" y="145" text-anchor="middle" font-size="12" fill="#66666a">encoder</text>
+  <text x="450" y="185" text-anchor="middle" font-size="11" fill="#66666a">e(x)</text>
+
+  <!-- right panel: unfolded representation -->
+  <rect x="480" y="40" width="380" height="240" rx="10" fill="#ffffff" stroke="#d7d6d2" />
+  <text x="670" y="26" text-anchor="middle" font-size="12" fill="#66666a">learned representation (unfolded, ~linear)</text>
+
+  <line x1="520" y1="160" x2="830" y2="160" stroke="#eaf0fd" stroke-width="16" stroke-linecap="round" />
+  <circle cx="530" cy="160" r="6" fill="#ffffff" stroke="#1d4ed8" />
+  <circle cx="590" cy="160" r="6" fill="#ffffff" stroke="#1d4ed8" />
+  <circle cx="650" cy="160" r="6" fill="#ffffff" stroke="#1d4ed8" />
+  <circle cx="710" cy="160" r="6" fill="#ffffff" stroke="#1d4ed8" />
+  <circle cx="770" cy="160" r="6" fill="#ffffff" stroke="#1d4ed8" />
+  <circle cx="825" cy="160" r="6" fill="#ffffff" stroke="#1d4ed8" />
+
+  <text x="670" y="220" text-anchor="middle" font-size="11" fill="#66666a">same six points, now spread along</text>
+  <text x="670" y="236" text-anchor="middle" font-size="11" fill="#66666a">coordinates that align with the</text>
+  <text x="670" y="252" text-anchor="middle" font-size="11" fill="#66666a">underlying generative factors z</text>
+</svg>
