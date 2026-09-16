@@ -6,13 +6,16 @@ export async function getStaticPaths() {
   const projects = await getCollection('projects');
   return projects.map((project) => ({
     params: { id: project.id },
-    props: { project },
+    props: { project, all: projects },
   }));
 }
 
-const { project } = Astro.props;
+const { project, all } = Astro.props;
 const { Content } = await render(project);
 const isPaper = project.data.type === 'paper';
+const basedOnPapers = (project.data.basedOn ?? [])
+  .map((id) => all.find((p) => p.id === id))
+  .filter((p) => p !== undefined);
 ---
 
 <Base title={project.data.title} description={project.data.summary}>
@@ -27,6 +30,18 @@ const isPaper = project.data.type === 'paper';
     </>
   ) : (
     <p class="meta">{project.data.status}</p>
+  )}
+
+  {basedOnPapers.length > 0 && (
+    <p class="based-on">
+      Based on{' '}
+      {basedOnPapers.map((paper, i) => (
+        <>
+          {i > 0 && ', '}
+          <a href={`/projects/${paper!.id}/`}>{paper!.data.title}</a>
+        </>
+      ))}
+    </p>
   )}
 
   {project.data.links && (

@@ -9,6 +9,7 @@ const projects = all.filter((p) => p.data.type === 'project');
 
 <Base title="Projects" description="Research publications, projects, and case studies by William Heyden.">
   <h1>Projects &amp; Publications</h1>
+  <p class="lede">Peer-reviewed and preprint research below, and hands-on projects built on top of it further down — each one links back to the paper it extends.</p>
 
   {all.length === 0 && (
     <p class="empty">
@@ -18,8 +19,15 @@ const projects = all.filter((p) => p.data.type === 'project');
     </p>
   )}
 
+  {papers.length > 0 && projects.length > 0 && (
+    <nav class="segmented" aria-label="Jump to section">
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  )}
+
   {papers.length > 0 && (
-    <section>
+    <section id="publications">
       <h2>Publications</h2>
       <ul class="plain">
         {papers.map((paper) => (
@@ -37,16 +45,32 @@ const projects = all.filter((p) => p.data.type === 'project');
   )}
 
   {projects.length > 0 && (
-    <section>
+    <section id="projects">
       <h2>Projects</h2>
       <ul class="plain">
-        {projects.map((project) => (
-          <li class="card">
-            <h3><a href={`/projects/${project.id}/`}>{project.data.title}</a></h3>
-            <p class="meta">{project.data.status}</p>
-            <p>{project.data.summary}</p>
-          </li>
-        ))}
+        {projects.map((project) => {
+          const basedOnPapers = (project.data.basedOn ?? [])
+            .map((id) => all.find((p) => p.id === id))
+            .filter((p) => p !== undefined);
+          return (
+            <li class="card">
+              <h3><a href={`/projects/${project.id}/`}>{project.data.title}</a></h3>
+              <p class="meta">{project.data.status}</p>
+              <p>{project.data.summary}</p>
+              {basedOnPapers.length > 0 && (
+                <p class="based-on">
+                  Based on{' '}
+                  {basedOnPapers.map((paper, i) => (
+                    <>
+                      {i > 0 && ', '}
+                      <a href={`/projects/${paper!.id}/`}>{paper!.data.title}</a>
+                    </>
+                  ))}
+                </p>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </section>
   )}
